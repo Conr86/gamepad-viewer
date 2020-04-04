@@ -7,88 +7,63 @@
 	<title>Gamepad Viewer</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="favicon.png">
 
-	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/main.css">
+
+	<link rel="stylesheet" href="css/gamepad-xbox/style.css">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/gamepad.js"></script>
+	<script src="js/gamepad-viewer.js"></script>
+
+	<style>
+		#gamepad {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	</style>
 </head>
 
 <body>
-	<div id="no-gamepad"><span class="no-break">No active gamepad detected.</span> <span class="no-break">Press <kbd>H</kbd> to read instructions.</span></div>
-	<div id="gamepad"></div>
-	<div id="help">
-		<h2>Help</h2>
-
-		<h3>Instructions</h3>
-		<p>Press and hold any of your gamepad buttons for at least 1 second. If your gamepad is supported, it shows up.</p>
-
-		<h3>Detected Controllers</h3>
-		<table>
-			<thead>
-				<tr>
-					<th>Index</th>
-					<th>Controller ID</th>
-				</tr>
-			</thead>
-			<tbody id="gamepad-list">
-				<tr>
-					<td colspan="2">No gamepad detected.</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<h3>Keyboard shortcuts</h3>
-		<table>
-			<thead>
-				<tr>
-					<th>Key</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th><kbd>+</kbd></th>
-					<td>Zoom gamepad in</td>
-				</tr>
-				<tr>
-					<th><kbd>-</kbd></th>
-					<td>Zoom gamepad out</td>
-				</tr>
-				<tr>
-					<th><kbd>0</kbd></th>
-					<td>Reset gamepad zoom</td>
-				</tr>
-				<tr>
-					<th><kbd>B</kbd></th>
-					<td>Change background color</td>
-				</tr>
-				<tr>
-					<th><kbd>C</kbd></th>
-					<td>Change active gamepad color</td>
-				</tr>
-				<tr>
-					<th><kbd>D</kbd></th>
-					<td>Toggle debug mode for active gamepad</td>
-				</tr>
-				<tr>
-					<th><kbd>H</kbd></th>
-					<td>Display this help</td>
-				</tr>
-				<tr>
-					<th><kbd>O</kbd></th>
-					<td>Start the demo</td>
-				</tr>
-				<tr>
-					<th><kbd>Delete</kbd>, <kbd>Escape</kbd></th>
-					<td>Clear active gamepad</td>
-				</tr>
-			</tbody>
-		</table>
+	<div id="gamepad" data-color="white">
+		<div class="triggers">
+			<span id="LEFT_BOTTOM_SHOULDER" class="trigger left"></span>
+			<span id="RIGHT_BOTTOM_SHOULDER" class="trigger right"></span>
+			<span class="clear"></span>
+		</div>
+		<div class="bumpers">
+			<span id="LEFT_TOP_SHOULDER" class="bumper left"></span>
+			<span id="RIGHT_TOP_SHOULDER" class="bumper right"></span>
+			<span class="clear"></span>
+		</div>
+		<div id="HOME" class="meta"></div>
+		<div class="arrows">
+			<span id="SELECT_BACK" class="select"></span>
+			<span id="START_FORWARD" class="start"></span>
+			<span class="clear"></span>
+		</div>
+		<div class="buttons">
+			<span id="FACE_3" class="button a"></span>
+			<span id="FACE_2" class="button b"></span>
+			<span id="FACE_4" class="button x"></span>
+			<span id="FACE_1" class="button y"></span>
+		</div>
+		<div class="sticks">
+			<span id="LEFT_STICK" class="stick left"></span>
+			<span id="RIGHT_STICK" class="stick right"></span>
+		</div>
+		<div class="dpad">
+			<span id="DPAD_UP" class="face up"></span>
+			<span id="DPAD_DOWN" class="face down"></span>
+			<span id="DPAD_LEFT" class="face left"></span>
+			<span id="DPAD_RIGHT" class="face right"></span>
+		</div>
 	</div>
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/gamepad-demo.js"></script>
-	<script src="js/gamepad.js"></script>
 </body>
 
 </html>

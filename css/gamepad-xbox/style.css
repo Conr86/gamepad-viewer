@@ -28,6 +28,7 @@
     height: 122px;
     background: url(trigger.svg);
     opacity: 1;
+    -webkit-clip-path: inset(100% 0px 0px 0pc);
 }
 
 #gamepad .trigger[data-value="0"] {
